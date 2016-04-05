@@ -1,0 +1,14 @@
+it('should change data based on `top10percent` metric type', () => {
+  let initialData;
+  return adapter.client
+    .loginAndNavigate('#exceptions/carrier/3094')
+    .then(adapter.client.getUrl)
+    .then((data) => {
+      initialData = data;
+    })
+    .then(adapter.client.clickTop10Percent)
+    .then(adapter.client.getUrl)
+    .then((afterData) => {
+      expect(afterData).to.not.deep.equal(initialData);
+    });
+});

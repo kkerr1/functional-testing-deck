@@ -1,0 +1,9 @@
+it('should change data based on `top10percent` metric type', () => {
+  yield adapter.client.loginAndNavigate('#exceptions/carrier/3094');
+  const initialData = yield adapter.client.getUrl();
+
+  yield adapter.client.clickTop10Percent();
+
+  expect(yield adapter.client.getUrl())
+    .to.not.deep.equal(initialData);
+});

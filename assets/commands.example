@@ -1,0 +1,10 @@
+client.addCommand('waitForExistAndClick', function(selector) {
+  return this
+    .waitForExist(selector, NETWORK_WAIT)
+    .click(selector);
+});
+
+client.addCommand('clickTop10Percent', function() {
+  return this
+    .waitForExistAndClick('[data-auto=top10percent]');
+});
